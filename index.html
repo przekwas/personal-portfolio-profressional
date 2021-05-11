@@ -42,6 +42,7 @@
 			crossorigin="anonymous"
 		></script> -->
 		<!-- custom js -->
+		<button id="start">OPen My prOtFOliO</button>
 		<div id="someElement"></div>
 
 		<script type="text/javascript">
@@ -54,7 +55,7 @@
 				})`;
 			}
 
-			function printLetterByLetter(destination, message, speed) {
+			function printLetterByLetter(destination, message, speed, dumb) {
 				let i = 0;
 				const interval = setInterval(function () {
 					let fuck, fuckThis;
@@ -67,6 +68,7 @@
 						fuck.appendChild(fuckThis);
 					}
 					fuck.className = `slide-in ${i % 2 ? 'even' : 'odd'}`;
+					fuck.id = i;
 					fuck.style.color = wtf(true);
 					fuck.style.background = wtf(true);
 					fuck.style.borderRadius = '10%';
@@ -77,6 +79,12 @@
 					fuck.style.alignItems = 'center';
 					document.getElementById(destination).appendChild(fuck);
 					i++;
+					const top = fuck.getBoundingClientRect().top + window.pageYOffset;
+					window.scrollTo({
+						behavior: 'smooth',
+						top: i % 2 ? top : top * -1
+					});
+
 					if (i > message.length) {
 						clearInterval(interval);
 					}
@@ -84,7 +92,21 @@
 			}
 
 			document.addEventListener('DOMContentLoaded', () => {
-				printLetterByLetter('someElement', 'Graphic design is my passion.', 500);
+				document.getElementById('start').addEventListener('click', () => {
+					const omfg = new Audio();
+					const hellYa = new Audio();
+					hellYa.src = 'yeppers.mp3';
+					hellYa.volume = 0.75;
+					hellYa.playbackRate = 0.75;
+					hellYa.loop = true;
+					hellYa.play();
+					omfg.src = 'sick.mp3';
+					omfg.volume = 1;
+					omfg.playbackRate = 1.25;
+					omfg.loop = true;
+					omfg.play();
+					printLetterByLetter('someElement', 'Graphic design is my passion.', 2000);
+				});
 			});
 		</script>
 		<script src="app.js"></script>
