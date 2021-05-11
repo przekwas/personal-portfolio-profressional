@@ -97,7 +97,7 @@
 					const hellYa = new Audio();
 					hellYa.src = 'yeppers.mp3';
 					hellYa.volume = 0.75;
-					hellYa.playbackRate = 0.75;
+					hellYa.playbackRate = 0.8;
 					hellYa.loop = true;
 					hellYa.play();
 					omfg.src = 'sick.mp3';
@@ -105,6 +105,14 @@
 					omfg.playbackRate = 1.25;
 					omfg.loop = true;
 					omfg.play();
+					setTimeout(() => {
+						const delayyes = new Audio();
+						delayyes.src = 'sick.mp3';
+						delayyes.volume = 1;
+						delayyes.playbackRate = 1.25;
+						delayyes.loop = true;
+						delayyes.play();
+					}, 1000);
 					printLetterByLetter('someElement', 'Graphic design is my passion.', 2000);
 				});
 			});
