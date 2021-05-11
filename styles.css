@@ -1,0 +1,35 @@
+.slide-in {
+	animation: slidein 2s cubic-bezier(.66,1.95,.66,-1.65);
+	
+}
+
+@keyframes slidein {
+	0% {
+		transform: translate(-100%, -100%) rotate(-100deg) scale(0.25) skew(25deg);
+	}
+
+	50% {
+		transform: translate(-200%, -200%) rotate(-50deg) scale(2) skew(-50deg);
+	}
+
+	100% {
+		transform: translate(0%, 0%) rotate(0deg) scale(1) skew(0deg);
+	}
+}
+
+#someElement {
+	display: flex;
+	flex-wrap: wrap;
+	width: 50%;
+	margin: 50px auto;
+}
+
+.even {
+	font-family: Papyrus, fantasy;
+	font-size: 10rem;
+}
+
+.odd {
+	font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+	font-size: 5rem;
+}

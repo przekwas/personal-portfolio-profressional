@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>JS Fun</title>
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+		<link rel="manifest" href="favicon/site.webmanifest" />
+		<!-- sweetalert -->
+		<!-- <script
+			src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"
+			integrity="sha256-BCA32nU+myeLCd/w96c+FjtijDVZiEQuuYOJMSLF7Uk="
+			crossorigin="anonymous"
+		></script> -->
+		<!-- bootstrap css -->
+		<!-- <link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+			crossorigin="anonymous"
+		/> -->
+		<!-- tailwind css -->
+		<!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" /> -->
+		<!-- custom css -->
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body class="flex flex-col items-center justify-center min-h-screen bg-gray-200">
+		<!-- jquery -->
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"
+		></script>
+		<!-- bootstrap js with popper -->
+		<!-- <script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-JEW9xMcG8R+pdiv1jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+			crossorigin="anonymous"
+		></script> -->
+		<!-- custom js -->
+		<div id="someElement"></div>
+
+		<script type="text/javascript">
+			function wtf(alpha) {
+				const r = Math.floor(Math.random() * 256);
+				const g = Math.floor(Math.random() * 256);
+				const b = Math.floor(Math.random() * 256);
+				return `rgb${alpha ? 'a' : null}(${r}, ${g}, ${b}${
+					alpha ? `,${Math.random()} ` : null
+				})`;
+			}
+
+			function printLetterByLetter(destination, message, speed) {
+				let i = 0;
+				const interval = setInterval(function () {
+					let fuck, fuckThis;
+					if (message.charAt(i) === ' ') {
+						fuck = document.createElement('div');
+						fuck.style.margin = '20rem';
+					} else {
+						fuck = document.createElement('div');
+						fuckThis = document.createTextNode(message.charAt(i));
+						fuck.appendChild(fuckThis);
+					}
+					fuck.className = `slide-in ${i % 2 ? 'even' : 'odd'}`;
+					fuck.style.color = wtf(true);
+					fuck.style.background = wtf(true);
+					fuck.style.borderRadius = '10%';
+					fuck.style.padding = '5px';
+					fuck.style.height = `${Math.random() * 500}px`;
+					fuck.style.display = 'flex';
+					fuck.style.justifyContent = 'center';
+					fuck.style.alignItems = 'center';
+					document.getElementById(destination).appendChild(fuck);
+					i++;
+					if (i > message.length) {
+						clearInterval(interval);
+					}
+				}, speed);
+			}
+
+			document.addEventListener('DOMContentLoaded', () => {
+				printLetterByLetter('someElement', 'Graphic design is my passion.', 500);
+			});
+		</script>
+		<script src="app.js"></script>
+	</body>
+</html>
